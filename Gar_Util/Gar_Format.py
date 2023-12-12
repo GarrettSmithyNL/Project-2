@@ -30,7 +30,6 @@ DATE_MEDIUM_FORMATTING = "%d-%b-%y"
 DATE_LONG_FORMATTING = "%d %B %Y"
 DATE_SHORT_WEEKDAY = "%a, %d-%b-%y"
 DATE_LONG_WEEKDAY = "%A, %B %d %Y"
-
 # Functions
 
 
