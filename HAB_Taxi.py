@@ -131,69 +131,69 @@ if LAST_DATE_USED is not TODAY_DATE:
         # writer.close()
         # index += 1
     employees.seek(0)
-# # Main Loop
-# while True:
-#     # printing out the menu
-#     print(f"")
-#     print(f"HAB Taxi Services")
-#     print(f"Company Service System")
-#     print(f"")
-#     print(f"1. Enter a New Employee (driver).")
-#     print(f"2. Enter Company Revenues.")
-#     print(f"3. Enter Company Expenses.")
-#     print(f"4. Track Car Rental.")
-#     print(f"5. Record Employee Payment.")
-#     print(f"6. Print Company Finacial Listing.")
-#     print(f"7. Print Driver Finacial Listing.")
-#     print(f"8. Item On Hand Report")
-#     print(f"9. Exit")
-#     print(f"")
-#     print(f"Chose a number from the menu above.")
+# Main Loop
+while True:
+    # printing out the menu
+    print(f"")
+    print(f"HAB Taxi Services")
+    print(f"Company Service System")
+    print(f"")
+    print(f"1. Enter a New Employee (driver).")
+    print(f"2. Enter Company Revenues.")
+    print(f"3. Enter Company Expenses.")
+    print(f"4. Track Car Rental.")
+    print(f"5. Record Employee Payment.")
+    print(f"6. Print Company Finacial Listing.")
+    print(f"7. Print Driver Finacial Listing.")
+    print(f"8. Item On Hand Report")
+    print(f"9. Exit")
+    print(f"")
+    print(f"Chose a number from the menu above.")
 
-#     # Gathering the input from the user
-#     while True:
-#         choice = input("Enter your choice: ")
-#         if validator.validateInt(choice, 1, 9):
-#             choice = int(choice)
-#             break
+    # Gathering the input from the user
+    while True:
+        choice = input("Enter your choice: ")
+        if validator.validateInt(choice, 1, 9):
+            choice = int(choice)
+            break
 
-#     # Processing the input from the user
-#     if choice == 1:
-#         print(f"Add a new employee.")
-#         NEXT_DRIVER += 1
-#         print(f"Driver ID: {NEXT_DRIVER}")
-#     elif choice == 2:
-#         print(f"Add a new revenue.")
-#     elif choice == 3:
-#         print(f"Add a new expense.")
-#         NEXT_TRANSACTION += 1
-#     elif choice == 4:
-#         print(f"Track a car rental.")
-#     elif choice == 5:
-#         print(f"print record of employee payment.")
-#     elif choice == 6:
-#         print(f"print company financial listing.")
-#     elif choice == 7:
-#         print(f"print driver financial listing.")
-#     elif choice == 8:
-#         print(f"print item on hand report.")
-#     elif choice == 9:
-#         print(f"Exiting program.")
-#         break
+    # Processing the input from the user
+    if choice == 1:
+        print(f"Add a new employee.")
+        NEXT_DRIVER += 1
+        print(f"Driver ID: {NEXT_DRIVER}")
+    elif choice == 2:
+        print(f"Add a new revenue.")
+    elif choice == 3:
+        print(f"Add a new expense.")
+        NEXT_TRANSACTION += 1
+    elif choice == 4:
+        print(f"Track a car rental.")
+    elif choice == 5:
+        print(f"print record of employee payment.")
+    elif choice == 6:
+        print(f"print company financial listing.")
+    elif choice == 7:
+        print(f"print driver financial listing.")
+    elif choice == 8:
+        print(f"print item on hand report.")
+    elif choice == 9:
+        print(f"Exiting program.")
+        break
 
 
-# # Updating Defaults.dat
-# defaults.close()
+# Updating Defaults.dat
+defaults.close()
 
-# defaults = open("defaults.dat", "w")
-# defaults.write(str(NEXT_TRANSACTION) + "\n")
-# defaults.write(str(NEXT_DRIVER) + "\n")
-# defaults.write(str(MONTHLY_STAND_FEE) + "\n")
-# defaults.write(str(DAILY_RENTAL_FEE) + "\n")
-# defaults.write(str(WEEKLY_RENTAL_FEE) + "\n")
-# defaults.write(str(HST_RATE) + "\n")
-# defaults.write(str(TODAY_DATE.date()) + "\n")
-# defaults.close()
+defaults = open("defaults.dat", "w")
+defaults.write(str(NEXT_TRANSACTION) + "\n")
+defaults.write(str(NEXT_DRIVER) + "\n")
+defaults.write(str(MONTHLY_STAND_FEE) + "\n")
+defaults.write(str(DAILY_RENTAL_FEE) + "\n")
+defaults.write(str(WEEKLY_RENTAL_FEE) + "\n")
+defaults.write(str(HST_RATE) + "\n")
+defaults.write(str(TODAY_DATE.date()) + "\n")
+defaults.close()
 
 
 employees.close()
