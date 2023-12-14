@@ -48,8 +48,9 @@ def Inventory_Report():
         InvoiceDate = ExspenseLst[1].strip()
         DriverNum = ExspenseLst[2].strip()
         ItemID = ExspenseLst[3].strip()
-        ItemQuantity = int(ExspenseLst[4].strip())
-        ItemPrice = float(ExspenseLst[5].strip())
+        Description = ExspenseLst[4].strip()
+        ItemQuantity = int(ExspenseLst[5].strip())
+        ItemPrice = float(ExspenseLst[6].strip())
 
         
     #Processing and calculations
@@ -141,7 +142,7 @@ def Inventory_Report():
     print(u'\u2500' * 51)
 
 
-    # Progress bar
+    # Progress bar column
     print()
     print(u'\u2500' * 77)
     print("Generating new column with updated inventory quantities...")
