@@ -1,7 +1,7 @@
-001,Taxi Meter,5
-002,Navigation System,10
-003,Cleaning Supplies,20
-004,Driver Logbook,30
-005,First Aid Kit,15
-006,Car Air Freshener,50
-007,Repair,8
+001,Taxi Meter,5,14.00
+002,Navigation System,0,100.00
+003,Cleaning Supplies,20,50.00
+004,Driver Logbook,30,24.99
+005,First Aid Kit,15,10.00
+006,Car Air Freshener,50,5.00
+007,Repair,6,85.00
