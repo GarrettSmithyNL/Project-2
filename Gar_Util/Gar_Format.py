@@ -177,4 +177,6 @@ def dateInsurance(pDate):
     Returns:
         str: The insurance format of the date.
     """
+
     return pDate.strftime(INSURANCE_DATE_FORMATTING)
+
