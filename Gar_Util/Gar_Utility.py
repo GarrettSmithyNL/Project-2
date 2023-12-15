@@ -35,3 +35,4 @@ def exit(message=None):
             return True
         else:
             return False
+
