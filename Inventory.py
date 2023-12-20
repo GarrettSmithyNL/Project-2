@@ -1,18 +1,10 @@
 def Inventory_Report():
 
-    # def inventory(item.dat, "expenses.dat"):    
-    # Program to generate a detailed report for the HAB taxi services company 
+    # def inventory(item.dat, "expenses.dat"):
+    # Program to generate a detailed report for the HAB taxi services company
     # to update their inventory and show the expensives of each driver.
     # Written on: December 13, 2023
     # Written by: Rodney Stead as part of Robot Group 9
-
-    # Import libraries
-    import datetime
-    CurDate = datetime.datetime.now()
-    import time
-    from tqdm import tqdm
-    from Gar_Util import Gar_Format as formater
-    from Gar_Util import Gar_Validate as validator
 
     # Head column
     print(u'\u2500' * 77)
@@ -25,21 +17,21 @@ def Inventory_Report():
     print(f"=============================================================================")
 
     # Counters and accumulators
-    TaxiMtrCtr    = 0
-    NavSystemCtr  = 0
-    CleanSuppCtr  = 0
-    DriveLogCtr   = 0
-    FirstAidCtr   = 0
+    TaxiMtrCtr = 0
+    NavSystemCtr = 0
+    CleanSuppCtr = 0
+    DriveLogCtr = 0
+    FirstAidCtr = 0
     CarFreshnrCtr = 0
-    RepairCtr     = 0
-    InvoiceCtr    = 0
-    NewInvCtr     = 0
+    RepairCtr = 0
+    InvoiceCtr = 0
+    NewInvCtr = 0
 
     TotSubtotal = 0
     TotalExpenses = 0
 
     # Opening needed files
-    f = open("expenses.dat", "r") 
+    f = open("expenses.dat", "r")
 
     for Exspenses in f:
         ExspenseLst = Exspenses.split(",")
@@ -52,8 +44,7 @@ def Inventory_Report():
         ItemQuantity = int(ExspenseLst[5].strip())
         ItemPrice = float(ExspenseLst[6].strip())
 
-        
-    #Processing and calculations
+    # Processing and calculations
 
         # Item name
         ItemName = ""
@@ -83,13 +74,13 @@ def Inventory_Report():
         SubTotal = (ItemPrice / 1.15) / ItemQuantity
 
         # Detail Line
-        print(f"{InvoiceNum:<3}      {InvoiceDate:<10}  {DriverNum:<4}    {ItemID:<6}{ItemName:<17} {formater.formatInt(ItemQuantity):>2}     {formater.formatMoney(SubTotal):>7}   {formater.formatMoney(ItemPrice):>7}")     
+        print(f"{InvoiceNum:<3}      {InvoiceDate:<10}  {DriverNum:<4}    {ItemID:<6}{ItemName:<17} {formater.formatInt(ItemQuantity):>2}     {formater.formatMoney(SubTotal):>7}   {formater.formatMoney(ItemPrice):>7}")
 
         # Update to counters and accumulators
-        InvoiceCtr    += 1
-        NewInvCtr     += ItemQuantity
+        InvoiceCtr += 1
+        NewInvCtr += ItemQuantity
 
-        TotSubtotal   += SubTotal
+        TotSubtotal += SubTotal
         TotalExpenses += ItemPrice
 
     # Close expenses.dat file
@@ -98,7 +89,7 @@ def Inventory_Report():
     # Opening item.dat file
     x = open("item.dat", "r")
 
-    # Dictionary to update item quantities 
+    # Dictionary to update item quantities
     UpDatedQtyDic = {
         "001": TaxiMtrCtr,
         "002": NavSystemCtr,
@@ -115,22 +106,21 @@ def Inventory_Report():
         if ItemNum in UpDatedQtyDic:
             NewItemQty = UpDatedQtyDic[ItemNum] + PrevItemQty
 
-    
         if ItemNum == "001":
             TaxiMtrCtr += int(PrevItemQty)
         elif ItemNum == "002":
-            NavSystemCtr += int(PrevItemQty)    
+            NavSystemCtr += int(PrevItemQty)
         elif ItemNum == "003":
-            CleanSuppCtr += int(PrevItemQty)    
+            CleanSuppCtr += int(PrevItemQty)
         elif ItemNum == "004":
             DriveLogCtr += int(PrevItemQty)
         elif ItemNum == "005":
-            FirstAidCtr += int(PrevItemQty)        
-        elif ItemNum == "006":    
+            FirstAidCtr += int(PrevItemQty)
+        elif ItemNum == "006":
             CarFreshnrCtr += int(PrevItemQty)
-        elif ItemNum == "007":    
+        elif ItemNum == "007":
             RepairCtr += int(PrevItemQty)
-        
+
     x.close()
     # Invoice Summary Column
     print(f"=============================================================================")
@@ -141,7 +131,6 @@ def Inventory_Report():
     print(f":{formater.formatInt(InvoiceCtr):<3}          :{formater.formatInt(NewInvCtr):<3}          :{formater.formatMoney(TotSubtotal):<10}  :{formater.formatMoney(TotalExpenses):<10}")
     print(u'\u2500' * 51)
 
-
     # Progress bar column
     print()
     print(u'\u2500' * 77)
@@ -151,7 +140,6 @@ def Inventory_Report():
     # Processing bar
     for _ in tqdm(range(20), desc="Processing", unit="ticks", ncols=77, bar_format="{desc}  {bar}"):
         time.sleep(.1)
-
 
     print(u'\u2500' * 77)
     print("New inventory summary has been successfully generated.")
@@ -175,7 +163,11 @@ def Inventory_Report():
     print(f"=============================================================================")
 
 # Main function
+
+
 def main():
     Inventory_Report()
+
+
 # Running the program
 main()

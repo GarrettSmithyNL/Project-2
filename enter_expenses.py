@@ -75,7 +75,8 @@ def get_item_cost(item_number):
 # Save add new record to expenses and change items
 def add_expenses(invoice_number, date, driver_number, item_number, quantity, invoice_total):
     with open('expenses.dat', 'a') as expenses:
-        expenses.write(f'\n{invoice_number},{date},{driver_number},{item_number},{quantity},{invoice_total}')
+        expenses.write(
+            f'\n{invoice_number},{date},{driver_number},{item_number},{quantity},{invoice_total}')
 
     for i, item in enumerate(items_list):
         db_item_number = item.split(',')[0]
@@ -138,14 +139,15 @@ while True:
     print(' Number                    Number       Number                        Total')
     print('=============================================================================')
     print('{:<7}     {:<10}      {:<6}       {:<4}          {:<8}      {:<7}'
-          .format(InvoiceNumber, InvoiceDate, DriverNumber, ItemNumber, Quantity, formatMoney(InvoiceTotal)))
+          .format(InvoiceNumber, InvoiceDate, DriverNumber, ItemNumber, Quantity, formater.formatMoney(InvoiceTotal)))
     print()
     NextAction = input('Type SAVE, RETRY or EXIT: ').upper()
 
     if NextAction == 'EXIT':
         break
     elif NextAction == 'SAVE':
-        add_expenses(InvoiceNumber, InvoiceDate, DriverNumber, ItemNumber, Quantity, InvoiceTotal)
+        add_expenses(InvoiceNumber, InvoiceDate, DriverNumber,
+                     ItemNumber, Quantity, InvoiceTotal)
         cls()
         print('Record has saved!')
         print()
